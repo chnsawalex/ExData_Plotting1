@@ -13,7 +13,7 @@ data2$DateTime = strptime(paste(data2$Date, data2$Time, sep=" "),format="%Y-%m-%
 
 
 ###  Create Plot  ###
-par(mar = c(2, 4, 1, 1))
+par(mar = c(4, 4, 2, 2))
 plot(data2$DateTime, data2$Sub_metering_1, type="l", ylab="Energy Sub metering", xlab="")
 points(data2$DateTime, data2$Sub_metering_2, type="l", col="red")
 points(data2$DateTime, data2$Sub_metering_3, type="l", col="blue")
