@@ -13,14 +13,12 @@ data2$DateTime = strptime(paste(data2$Date, data2$Time, sep=" "),format="%Y-%m-%
 
 
 ###  Create Plot  ###
+png(file = "plot3.png", bg = "transparent")
 par(mar = c(4, 4, 2, 2))
 plot(data2$DateTime, data2$Sub_metering_1, type="l", ylab="Energy Sub metering", xlab="")
 points(data2$DateTime, data2$Sub_metering_2, type="l", col="red")
 points(data2$DateTime, data2$Sub_metering_3, type="l", col="blue")
-legend("topright", pch="_", col=c("black", "red","blue"), legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
-
-
-
-###  Save Plot to PNG File  ###
-dev.copy(png, file = "plot3.png")  ## Copy my plot to a PNG file
-dev.off()                          ## Don't forget to close the PNG device!
+legend("topright", pch="_", col=c("black", "red","blue"), 
+       legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
+#Close writing
+dev.off()

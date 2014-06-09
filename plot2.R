@@ -13,9 +13,9 @@ data2$DateTime = strptime(paste(data2$Date, data2$Time, sep=" "),format="%Y-%m-%
 
 
 ###  Create Plot  ###
+#Set write path
+png(file = "plot2.png", bg = "transparent")
 plot(data2$DateTime, data2$Global_active_power, type="l", ylab="Global Active Power (kilowatts)", xlab="")
 
-
-###  Save Plot to PNG File  ###
-dev.copy(png, file = "plot2.png")  ## Copy my plot to a PNG file
-dev.off()                          ## Don't forget to close the PNG device!
+#Close writing
+dev.off()

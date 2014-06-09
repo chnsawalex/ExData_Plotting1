@@ -13,7 +13,9 @@ data2$DateTime = strptime(paste(data2$Date, data2$Time, sep=" "),format="%Y-%m-%
 
 
 ###  Create Plot  ###
-par(mfrow=c(2,2), cex=.80)
+#Set write path
+png(file = "plot4.png", bg = "transparent")
+par(mfrow=c(2,2))
 
 #Top Left Plot
 plot(data2$DateTime, data2$Global_active_power, type="l", ylab="Global Active Power", xlab="")
@@ -21,12 +23,10 @@ plot(data2$DateTime, data2$Global_active_power, type="l", ylab="Global Active Po
 #Top Right Plot
 plot(data2$DateTime, data2$Voltage, type="l", xlab="datetime", ylab="Voltage")
 
-
 #Bottom Left Plot
 plot(data2$DateTime, data2$Sub_metering_1, type="l", ylab="Energy Sub metering", xlab="")
 points(data2$DateTime, data2$Sub_metering_2, type="l", col="red")
 points(data2$DateTime, data2$Sub_metering_3, type="l", col="blue")
-#par(cex=.90)
 
 legend("topright", pch="-", col=c("black", "red","blue"), legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),
        bty="n", pt.cex=1, cex=0.9)
@@ -34,8 +34,5 @@ legend("topright", pch="-", col=c("black", "red","blue"), legend=c("Sub_metering
 #Bottom Left Plot
 plot(data2$DateTime, data2$Global_reactive_power, type="l", xlab="datetime")
 
-
-
-###  Save Plot to PNG File  ###
-dev.copy(png, file = "plot4.png")  ## Copy my plot to a PNG file
-dev.off()                          ## Don't forget to close the PNG device!
+#Close writing
+dev.off()

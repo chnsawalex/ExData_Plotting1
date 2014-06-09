@@ -11,11 +11,10 @@ data2 <- subset(data, (Date <= as.Date("2007-02-02") & Date >= as.Date("2007-02-
 
 
 ###  Create Plot  ###
+#Set write path
+png(file = "plot1.png", bg = "transparent")
 
 hist(data2$Global_active_power, col="red", xlab="Global Active Power (kilowatts)", 
      main="Global Active Power")
-
-
-###  Save Plot to PNG File  ###
-dev.copy(png, file = "plot1.png")  ## Copy my plot to a PNG file
-dev.off()                          ## Don't forget to close the PNG device!
+#Close writing
+dev.off()
